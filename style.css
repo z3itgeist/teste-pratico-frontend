@@ -8,6 +8,14 @@ body {
     margin: auto;
 }
 
+.headerContainer {
+    display: flex; 
+    align-items: center;  
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -37,4 +45,13 @@ h3 {
     font-weight: 400;
 }
 
+@media (max-width: 768px) {
+    .desktopView { display: none; }
+    .mobileView { display: block; }
+}
+
+@media (min-width: 769px) {
+    .desktopView { display: table; }
+    .mobileView { display: none; }
+}
 
