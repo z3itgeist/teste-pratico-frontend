@@ -1,4 +1,4 @@
-async function buscarFuncionarios(params) {
+async function carregarFuncionarios(params) {
     try {
 
         const resposta = await fetch('http://localhost:3000/employees');
@@ -61,4 +61,4 @@ function listarMobile(func) {
 }
 
 
-window.onload = buscarFuncionarios;
+window.onload = carregarFuncionarios;
