@@ -25,8 +25,8 @@ const searchBar = document.getElementById('search');
                                                 <td>${colaborador.id}</td>
                                                 <td>${colaborador.name}</td>
                                                 <td>${colaborador.job}</td>
-                                                <td>${colaborador.admission_date}</td>
-                                                <td>${colaborador.phone}</td>
+                                                <td>${formatarData(colaborador.admission_date)}</td>
+                                                <td>${formatarTelefone(colaborador.phone)}</td>
             
                                             `;
                 tbody.appendChild(row);
@@ -37,9 +37,23 @@ const searchBar = document.getElementById('search');
             
             const termoPesquisa = event.target.value.toLowerCase();
 
-            fetch('http://localhost:3000/employees');
+            fetch('http://localhost:3000/employees')
                 .then(resposta => resposta.json())
                 .then(func => {
-                                const funcBuscado = func.filter()
+                                const funcBuscado = func.filter(func => 
+                                    func.name.toLowerCase().includes(termoPesquisa) ||
+                                    func.job.toLowerCase().includes(termoPesquisa) ||
+                                    func.phone.toLowerCase().includes(termoPesquisa)
+                                );
+
+                                    displayFunc(funcBuscado);
                 })
+
+                    .catch(error =>
+                        console.error ('Nenhum resultado encontrado', error)
+                    );
         }
+
+        searchBar.addEventListener('input', filtrarFunc);
+
+        window.onload = buscarFuncionarios;

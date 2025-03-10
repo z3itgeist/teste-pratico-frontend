@@ -5,34 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaboradores BeTalent</title>
     <link rel="stylesheet" href="style.css">
+    <link rel ="stylesheet" href="mobileStyle.css">
 
 
 </head>
 <body>
-    <header><h1>BeTalent</h1></header>
 
-    
+<div>
+    <header><img src="../teste-pratico-frontend/images/Logo.png"></header>
+</div>
+
     <div class = container>
       
-                <div class="headerContainer"> 
+                <div class="topContainer"> 
                     <h1>Funcionários</h1>
 
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Busca" aria-label="busca" aria-describedby="button-addon2">
+                        <input id="search" type="text" class="form-control" placeholder="Busca" aria-label="busca" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
                     </div>
                 </div>   
       
-      <div id="colaboradoresMobile" class="mobileView"></div>
+      <div id="colaboradoresMobile" class="mobileView">
+       <thead> 
+        <tr style="color: #ffffff;">
+            <th>FOTO</th>
+            <th>NOME</th>
+            <th>BOLINHA</th>
+        </tr>
+    </thead> 
+
+      </div>
 
         <table id="colaboradores"  class ="desktopView" style="margin-top: 20px;">
            <thead>
-                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Cargo</th>
-                    <th>Data de admissão</th>
-                    <th>Telefone</th>
+                 <tr style="color: #ffffff;">
+                    <th>FOTO</th>
+                    <th>NOME</th>
+                    <th>CARGO</th>
+                    <th>DATA DE ADMISSÃO</th>
+                    <th>TELEFONE</th>
                 </tr>
             </thead>    
             <tbody>
@@ -47,8 +59,10 @@
 
 
     </div>
+    <script src="conversores.js"></script>
     <script src="carregarFuncionarios.js"></script>
     <script src="buscarFuncionarios.js"></script>
+    <script src="listarMobile.js"></script>
     
 </body>
 </html>
